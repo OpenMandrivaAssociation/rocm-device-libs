@@ -19,6 +19,8 @@ License:        NCSA
 # Use fork upstream sources because they don't target stable LLVM, but rather the
 # bleeding edge LLVM branch. This fork is a snapshot with bugfixes backported:
 Source0:        https://github.com/mystro256/%{upstreamname}/archive/refs/tags/%{version}.tar.gz#/%{upstreamname}-%{version}.tar.gz
+# Patch imported from Mageia
+Patch:          0001-Use-FHS-compliant-install.patch
 
 BuildRequires:  cmake
 BuildRequires:  clang-devel
@@ -55,4 +57,4 @@ libraries in the form of bit code. Specifically:
 # No need to install this twice:
 %exclude %{_docdir}/ROCm-Device-Libs/LICENSE.TXT
 %{_libdir}/cmake/AMDDeviceLibs
-%clang_resource_dir/amdgcn
+#clang_resource_dir/amdgcn
