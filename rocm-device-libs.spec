@@ -26,6 +26,7 @@ BuildRequires:  clang
 BuildRequires:  llvm-devel
 BuildRequires:  zlib-devel
 BuildRequires:  pkgconfig(libzstd)
+BuildRequires: llvm-static-devel
 Requires:       clang
  
 %description
