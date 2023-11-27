@@ -57,4 +57,4 @@ libraries in the form of bit code. Specifically:
 # No need to install this twice:
 %exclude %{_docdir}/ROCm-Device-Libs/LICENSE.TXT
 %{_libdir}/cmake/AMDDeviceLibs
-#clang_resource_dir/amdgcn
+%{_libdir}//amdgcn/bitcode/
