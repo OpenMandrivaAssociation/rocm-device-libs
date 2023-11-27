@@ -6,7 +6,7 @@
 # but I prepare the initial *.0 tag long before Fedora/EL picks up new LLVM.
 # An LLVM update will require uploading new sources, contact mystro256 if FTBFS.
 %global bugfix_version 1
-%global upstreamname ROCm-Device-Libs
+%global upstreamname ROCm-Device-Libs-rocm
  
  
 Name:           rocm-device-libs
