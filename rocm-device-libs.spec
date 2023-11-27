@@ -19,12 +19,13 @@ License:        NCSA
 # Use fork upstream sources because they don't target stable LLVM, but rather the
 # bleeding edge LLVM branch. This fork is a snapshot with bugfixes backported:
 Source0:        https://github.com/mystro256/%{upstreamname}/archive/refs/tags/%{version}.tar.gz#/%{upstreamname}-%{version}.tar.gz
- 
+
 BuildRequires:  cmake
 BuildRequires:  clang-devel
 BuildRequires:  clang
 BuildRequires:  llvm-devel
 BuildRequires:  zlib-devel
+BuildRequires:  pkgconfig(libzstd)
 Requires:       clang
  
 %description
