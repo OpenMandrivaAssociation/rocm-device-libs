@@ -8,32 +8,24 @@
 %global bugfix_version 1
 %global upstreamname ROCm-Device-Libs
  
-# This might be needed because EL9 llvm is built with clang:
-%if 0%{?epel} > 8
-%global toolchain clang
-%endif
  
 Name:           rocm-device-libs
-Version:        %{llvm_maj_ver}.%{bugfix_version}
-Release:        1%{?dist}
+Version:        5.7.1
+Release:        1
 Summary:        AMD ROCm LLVM bit code libraries
  
 Url:            https://github.com/RadeonOpenCompute/ROCm-Device-Libs
 License:        NCSA
-# I fork upstream sources because they don't target stable LLVM, but rather the
-# bleeding edge LLVM branch. My fork is a snapshot with bugfixes backported:
+# Use fork upstream sources because they don't target stable LLVM, but rather the
+# bleeding edge LLVM branch. This fork is a snapshot with bugfixes backported:
 Source0:        https://github.com/mystro256/%{upstreamname}/archive/refs/tags/%{version}.tar.gz#/%{upstreamname}-%{version}.tar.gz
  
 BuildRequires:  cmake
 BuildRequires:  clang-devel
-BuildRequires:  clang(major) = %{llvm_maj_ver}
-BuildRequires:  llvm-devel(major) = %{llvm_maj_ver}
+BuildRequires:  clang
+BuildRequires:  llvm-devel
 BuildRequires:  zlib-devel
-Requires:       clang(major) = %{llvm_maj_ver}
-Requires:       clang-resource-filesystem
- 
-#Only the following architectures are useful for ROCm packages:
-ExclusiveArch:  x86_64 aarch64 ppc64le
+Requires:       clang
  
 %description
 This package contains a set of AMD specific device-side language runtime
@@ -50,9 +42,11 @@ libraries in the form of bit code. Specifically:
  
 %build
 %cmake -DCMAKE_BUILD_TYPE="RELEASE"
-%cmake_build
+%make_build
+
 %install
-%cmake_install
+%make_install -C build
+
 %files
 %license LICENSE.TXT
 %doc README.md doc/*.md
