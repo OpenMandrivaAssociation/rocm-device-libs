@@ -1,0 +1,14 @@
+--- a/cmake/OCL.cmake	2026-07-23 21:39:58.419088650 +0200
++++ b/cmake/OCL.cmake	2026-07-23 21:43:28.396233492 +0200
+@@ -28,9 +28,9 @@
+   set(EXE_SUFFIX)
+ endif()
+ 
+-# -Wno-error=atomic-alignment was added to workaround build problems due to
++# -Wno-error=atomic-alignment -Wno-error=attribute-alias was added to workaround build problems due to
+ # potential mis-aligned atomic ops detected by clang
+-set(CLANG_OCL_FLAGS -fcolor-diagnostics -Werror -Wno-error=atomic-alignment -x cl -Xclang
++set(CLANG_OCL_FLAGS -fcolor-diagnostics -Werror -Wno-error=atomic-alignment -Wno-error=attribute-alias -x cl -Xclang
+   -cl-std=CL2.0 -target "${AMDGPU_TARGET_TRIPLE}" -fvisibility=hidden -fomit-frame-pointer
+   -Xclang -finclude-default-header -nostdlibinc -Xclang -fexperimental-strict-floating-point
+   -Xclang -fdenormal-fp-math=dynamic
