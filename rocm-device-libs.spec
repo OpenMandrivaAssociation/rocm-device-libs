@@ -4,6 +4,7 @@
 Name:		rocm-device-libs
 Version:	7.14.0
 Release:	1
+%{!?rocm_llvm_maj_ver:%global rocm_llvm_maj_ver 23}
 Summary:	AMD ROCm device-side LLVM bitcode libraries
 License:	NCSA
 Group:		System/Libraries
@@ -16,8 +17,8 @@ BuildRequires:	rocm-rpm-macros
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	clang >= %{rocm_llvm_maj_ver}
-BuildRequires:	libclang-devel >= %{rocm_llvm_maj_ver}
-BuildRequires:	libllvm-devel >= %{rocm_llvm_maj_ver}
+BuildRequires:	lib64clang-devel >= %{rocm_llvm_maj_ver}
+BuildRequires:	lib64llvm-devel >= %{rocm_llvm_maj_ver}
 BuildRequires:	zlib-devel
 BuildRequires:	pkgconfig(libzstd)
 
