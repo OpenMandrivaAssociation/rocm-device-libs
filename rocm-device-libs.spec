@@ -2,14 +2,14 @@
 %global debug_package %{nil}
 
 Name:		rocm-device-libs
-Version:	7.14.0
-Release:	2
+Version:	10.0.0
+Release:	1
 %{!?rocm_llvm_maj_ver:%global rocm_llvm_maj_ver 23}
 Summary:	AMD ROCm device-side LLVM bitcode libraries
 License:	NCSA
 Group:		System/Libraries
 URL:		https://github.com/ROCm/llvm-project
-# Filtered sources: amd/device-libs from llvm-project @ therock-7.14
+# Filtered sources: amd/device-libs from llvm-project @ therock-10.0
 Source0:	rocm-device-libs-%{version}.tar.gz
 Patch0:		clang23-attribute-alias.patch
 
@@ -27,7 +27,7 @@ Requires:	clang >= %{rocm_llvm_maj_ver}
 %description
 AMD-specific device-side language runtime libraries as LLVM bitcode
 (ocml, ockl, opencl, hip, oclc controls, asanrtl, …). Built entirely from
-source on ABF from the TheRock 7.14 device-libs tree. Host-architecture
+source on ABF from the TheRock 10.0 device-libs tree. Host-architecture
 independent GPU bitcode — builds on any arch with a clang that can target
 amdgcn (x86_64, aarch64, riscv64, loongarch64, …).
 
